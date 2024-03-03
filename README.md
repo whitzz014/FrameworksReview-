@@ -1,6 +1,6 @@
 # Frameworks Exam 1
 
-## Week One 
+## Week 1
 
 ### Getting Started 
 --- 
@@ -86,7 +86,7 @@ https://angular.io/
 https://www.typescriptlang.org/docs/handbook/typescript-in-5-minutes.html
 
 
-## Week Two 
+## Week 2 
 
 ### What is TypeScript?
 --- 
@@ -144,3 +144,49 @@ Now we can run it in the terminal
 ```
 npm run-script generateInterface models/IContent
 ```
+
+### The Resulting IContent Interface 
+---
+- It will generate an exported <i>Interface</i> of that same name
+- We can add properties to the interface   
+![alt text](image-8.png)
+
+---
+
+![alt text](image-9.png)
+
+### TypeScript 
+--- 
+Some Variables can be set as optional 
+` body?: string`   
+- We can ever set default values by using an = sign 
+    `public fName: string = "Luffy";`
+### Example : Wish List 
+--- 
+- Create a class to store WishItem   
+![alt text](image-10.png)
+- Add into your WishItem.ts file:   
+![](image-11.png)
+- Go to app.component.ts and import WishItem Class   
+![alt text](image-12.png)
+- Add Data:   
+![alt text](image-13.png)
+- remove default stuff from app.component.html and add:    
+![alt text](image-14.png)
+### Looping in Angular 
+---
+- We are able to use what is called a <strong>directive</strong> inside the html to access a few of our JS loops.
+- Traditonally you want to use a for loop `for(let i = 0; i<length; i++)` but that is really needed 
+- We can make use of JS `For Of` loop to access each individual element and then iterate over the array until the end 
+ ![alt text](image-15.png)
+ #### Checkboxs 
+ ![alt text](image-16.png)
+
+ ### Conditional Logic 
+ ![alt text](image-18.png)
+    
+#### app.component.ts 
+- There is a couple ways to fix this. The Javascript approach would be to make our items array of type any. But, we’re better than Javascript, what would be a better type? 
+
+ ![alt text](image-17.png)
+
