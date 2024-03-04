@@ -190,3 +190,113 @@ Some Variables can be set as optional
 
  ![alt text](image-17.png)
 
+## Week 3 
+### What are Components?
+---
+- a component is a building block of an Angular application 
+- It's a TS class with an associated HTML template and styles that define part of the interface 
+- Decorated with the `@Component` decorator
+
+- <strong>Why it's important</strong>: Components are responsible for the UI and user interactions 
+- Directives and composed of: 
+    - HTML View 
+    - Specific Stylesheet
+    - TS File 
+
+### Key Conecpts : Class 
+---
+- The component class is written in TS and contains properties and methods that define its behaviour   
+    - Properties repersent the state or data   
+    - Methods define the functionality and behaviour of the component   
+
+![alt text](image-19.png)
+### Key Concepets : Template 
+---
+- The template is an HTML file associated with the component , which defines how the component should be structured and includes placeholders (bindings) for dynamic data and interactions 
+- Angualr uses a special syntax to bind data from the component class to the HTML template   
+
+![alt text](image-20.png)
+
+### Key Concpet : Styles
+---
+- Styles define tje apperance of the component
+- can be written in  CSS, SCSS, or anyother  style sheet language supported by Angular  
+- Styles are optional, and they help in creating consistent and visually appealing UI
+- Style for content in a component should only be defined in the components stylesheet file specifed in the decorator 
+    - Styles can be also applied to component tags using the :host CSS Selector  
+
+![alt text](image-21.png)
+
+### Key Concept : Meta Data 
+---
+- The `@Component` decorator is used to associate metadata with the component class 
+- In essence, a decorator is a func    
+
+![alt text](image-22.png)
+
+### Key Concept : Selector 
+---
+ - The `selector` is a CSS selector that defines how the component should be used in the HTML.  `<app-example></app-example>`
+ ### Key Concept : Dependency Injection 
+ - Angular has a powerful dependency injection system that allows  components to request dependencies from outside services 
+ #### Why is it important 
+1. Modularity 
+2. Reusability 
+3. Encapsulation 
+4. Maintainability 
+5. Consistent UI 
+
+### Getting Started 
+---
+- create component `ng  generate component ContentCard`
+- can also use scripts built into the package.json `npm run-script` `ng generate component ContentCard`
+
+### ngOnInit 
+- <i>ngOnInit</i> is a lifecycle hook that is part of the lifecycle events that a component goes through 
+- Lifecycle hook sin Angualr provide developers with a way to tap into certain moments in the components life cycle and execute custom logic 
+- Developers can use the ngOnInit hook to perform custom initialization logic for the component
+- can be: setting up initial values, fetching data from a service, or performing any other necessary setup tasks  
+- it is best practice to put initialization loogic that depends onthe components input properties or other setup tasks in the init method  
+![alt text](image-23.png)
+
+### ngOnInit vs Constructors 
+- Constructors get caleed when the class is being instantiated (before ngOnInit)
+- ^ used for dependency injections and initializing class properties 
+- Angular Lifecycle hooks https://angular.io/guide/lifecycle-hooks
+![alt text](image-24.png)
+![alt text](image-25.png)
+
+### How About the HTML?
+---
+- this is one way you can display the contentItem in the ContentCard's HTML file 
+![alt text](image-26.png)
+
+### Passing Data to Components 
+--- 
+- To pass down from one component to another, we can define input values that a component accepts 
+
+``` 
+export class ContentCard implments OnInit{ 
+    @Input() contentItem?: IContent; 
+    constructor() { } 
+}
+```
+- This allows the ContentCard component to accept contentItem  as a parameter when it is added to the HTML of another component 
+
+#### This means we can move our individual contentItem definition to the AppComponent's TypeScript file
+![alt text](image-27.png)
+#### And noe our AppComponents HTML can be updated to include a dynamic ContentCard 
+![alt text](image-28.png)
+
+### Additional options when using *ngFor
+--- 
+- *ngFor can be very versatile and can track many things 
+    - the current index of the element 
+    - check if its first, last, even and odd 
+
+#### EX. with index and first 
+![alt text](image-29.png)
+
+#### Using isFirst 
+- We can now use `isFirst` to do things like set the class of an HTML element if its true ![alt text](image-30.png)
+
